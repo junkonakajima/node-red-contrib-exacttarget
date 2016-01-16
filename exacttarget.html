@@ -5,9 +5,9 @@
             name: {value: ""}
         },
         credentials: {
-            clientId: {required: true},
-            clientSecret: {required: true},
-            stack: {required: true}
+            clientId: {type: "text", required: true},
+            clientSecret: {type: "password", required: true},
+            stack: {type: "text"}
         },
         label: function() {
             return this.name || "exacttarget";
@@ -30,6 +30,11 @@
     </div>
     <div class="form-row">
         <label for="node-config-input-stack"><i class="fa fa-wrench" placeholder="Stack"></i> Stack</label>
-        <input type="text" id="node-config-input-stack">
+        <select id="node-config-input-stack">
+            <option value="">s1</option>
+            <option value="s4">s4</option>
+            <option value="s6">s6</option>
+            <option value="s7">s7</option>
+        </select>
     </div>
 </script>
