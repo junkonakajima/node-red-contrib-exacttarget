@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('et-send',{
-        category: 'social',
+    RED.nodes.registerType('triggered-send',{
+        category: 'ExactTarget',
         color: '#a6bbcf',
         defaults: {
             name: {value: ""},
@@ -14,12 +14,12 @@
         outputs:1,
         icon: "envelope.png",
         label: function() {
-            return this.name || "et-send";
+            return this.name || "triggered-send";
         }
     });
 </script>
 
-<script type="text/x-red" data-template-name="et-send">
+<script type="text/x-red" data-template-name="triggered-send">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-cog"></i> Application</label>
         <input type="text" id="node-input-etConfig" >
@@ -46,7 +46,7 @@
     </div>
 </script>
 
-<script type="text/x-red" data-help-name="et-send">
+<script type="text/x-red" data-help-name="triggered-send">
     <p>Send Email with TriggeredSend.</p>
 </script>
 

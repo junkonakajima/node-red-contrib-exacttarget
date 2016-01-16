@@ -8,8 +8,8 @@ module.exports = function(RED) {
         this.default = {
             messageId: config.messageId,
             deviceTokens: config.deviceTokens,
-            subscriberKey: config.subscriberKey,
-            messageBody: config.messageBody,
+            subscriberKeys: config.subscriberKeys,
+            messageText: config.messageText,
         };
 
         var node = this;
@@ -17,16 +17,20 @@ module.exports = function(RED) {
             var client = new ET_Client(etConfig.credentials.clientId, etConfig.credentials.clientSecret, etConfig.credentials.stack);
             var payload = msg.payload;
 
-            var body = {
-                'SubscriberKeys': payload.subscriberKeys ? payload.subscriberKeys : node.default.subscriberKeys.split(','),
-                'DeviceTokens': payload.deviceTokens ? payload.deviceTokens : node.default.deviceTokens.split(',')
-            };
-            var messageBody = payload.messageBody ? payload.messageBody : node.default.messageBody;
-            if (messageBody && messageBody != '') {
-                body.MessageBody = messageBody;
+            var body = {};
+            var subscriberKeys = payload.subscriberKeys ? payload.subscriberKeys : node.default.subscriberKeys.split(',');
+            var deviceTokens =  payload.deviceTokens ? payload.deviceTokens : node.default.deviceTokens.split(',');
+            if (subscriberKeys.length > 0) {
+                body.SubscriberKeys = subscriberKeys;
+            } else if (deviceTokens.length > 0) {
+                body.DeviceTokens = deviceTokens;
+            }
+
+            var messageText = payload.messageText ? payload.messageText : node.default.messageText;
+            if (messageText && messageText != '') {
+                body.MessageText = messageText;
                 body.Override = true;
             }
-            console.log(body);
             var messageId = payload.messageId ? payload.messageId : node.default.messageId;
             client.RestClient
                 .post({
@@ -50,5 +54,5 @@ module.exports = function(RED) {
                 );
         });
     }
-    RED.nodes.registerType("et-push", MobilePush);
+    RED.nodes.registerType("mobile-push", MobilePush);
 }

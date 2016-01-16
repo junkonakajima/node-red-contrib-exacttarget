@@ -17,8 +17,8 @@
   ],
   "node-red": {
     "nodes": {
-      "et-send": "et-send.js",
-      "et-push": "et-push.js",
+      "triggered-send": "triggered-send.js",
+      "mobile-push": "mobile-push.js",
       "exacttarget": "exacttarget.js"
     }
   },

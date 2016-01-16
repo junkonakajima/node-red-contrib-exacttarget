@@ -79,5 +79,5 @@ module.exports = function(RED) {
             }); 
         });
     }
-    RED.nodes.registerType("et-send", TriggeredSend);
+    RED.nodes.registerType("triggered-send", TriggeredSend);
 }
