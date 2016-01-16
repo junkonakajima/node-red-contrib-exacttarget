@@ -1,0 +1,52 @@
+<script type="text/javascript">
+    RED.nodes.registerType('et-push',{
+        category: 'social',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value: ""},
+            etConfig: {value: "", type: "exacttarget", required: true},
+            messageId: {value: ""},
+            subscriberKeys: {value: ""},
+            deviceTokens: {value: ""},
+            messageBody: {value: ""},
+        },
+        inputs:1,
+        outputs:1,
+        icon: "envelope.png",
+        label: function() {
+            return this.name || "et-push";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="et-push">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-cog"></i> Application</label>
+        <input type="text" id="node-input-etConfig" >
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-wrench"></i> MessageID</label>
+        <input type="text" id="node-input-messageId" placeholder="MessageID">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-user"></i> Subscribers</label>
+        <input type="text" id="node-input-subscriberKeys" placeholder="SubscriberKeys">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-mobile"></i> DeviceTokens</label>
+        <input type="text" id="node-input-deviceTokens" placeholder="DeviceTokens">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-file"></i> Body</label>
+        <textarea id="node-input-messageBody" placeholder="MessageBody"></textarea>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="et-push">
+    <p>Push Message with ExactTarget.</p>
+</script>
+

@@ -1,0 +1,29 @@
+{
+  "name": "node-red-contrib-exacttarget",
+  "version": "0.0.1",
+  "description": "ExactTarget(Salesforce Marketing Cloud) Node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tzmfreedom/node-red-contrib-exacttarget"
+  },
+  "dependencies": {
+    "fuelsdk-node": "^1.1.8"
+  },
+  "keywords": [
+    "node-red",
+    "exacttarget",
+    "marketing cloud",
+    "salesforce"
+  ],
+  "node-red": {
+    "nodes": {
+      "et-send": "et-send.js",
+      "et-push": "et-push.js",
+      "exacttarget": "exacttarget.js"
+    }
+  },
+  "author": {
+    "name": "Makoto Tajitsu",
+    "email": "makoto_tajitsu@hotmail.co.jp"
+  }
+}

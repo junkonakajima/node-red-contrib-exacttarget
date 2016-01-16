@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    RED.nodes.registerType('exacttarget',{
+        category: 'config',
+        defaults: {
+            name: {value: ""}
+        },
+        credentials: {
+            clientId: {required: true},
+            clientSecret: {required: true},
+            stack: {required: true}
+        },
+        label: function() {
+            return this.name || "exacttarget";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="exacttarget">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-clientId"><i class="fa fa-key"></i> Client ID</label>
+        <input type="text" id="node-config-input-clientId" placeholder="Client ID">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-clientSecret"><i class="fa fa-key"></i> Client Secret</label>
+        <input type="password" id="node-config-input-clientSecret" placeholder="Client Secret">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-stack"><i class="fa fa-wrench" placeholder="Stack"></i> Stack</label>
+        <input type="text" id="node-config-input-stack">
+    </div>
+</script>
