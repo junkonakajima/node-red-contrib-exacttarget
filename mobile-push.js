@@ -15,23 +15,22 @@ module.exports = function(RED) {
         var node = this;
         this.on('input', function(msg) {                
             var client = new ET_Client(etConfig.credentials.clientId, etConfig.credentials.clientSecret, etConfig.credentials.stack);
-            var payload = msg.payload;
 
             var body = {};
-            var subscriberKeys = payload.subscriberKeys ? payload.subscriberKeys : node.default.subscriberKeys.split(',');
-            var deviceTokens =  payload.deviceTokens ? payload.deviceTokens : node.default.deviceTokens.split(',');
+            var subscriberKeys = msg.subscriberKeys ? msg.subscriberKeys : node.default.subscriberKeys.split(',');
+            var deviceTokens =  msg.deviceTokens ? msg.deviceTokens : node.default.deviceTokens.split(',');
             if (subscriberKeys.length > 0) {
                 body.SubscriberKeys = subscriberKeys;
             } else if (deviceTokens.length > 0) {
                 body.DeviceTokens = deviceTokens;
             }
 
-            var messageText = payload.messageText ? payload.messageText : node.default.messageText;
+            var messageText = msg.payload ? msg.payload : node.default.messageText;
             if (messageText && messageText != '') {
                 body.MessageText = messageText;
                 body.Override = true;
             }
-            var messageId = payload.messageId ? payload.messageId : node.default.messageId;
+            var messageId = msg.messageId ? msg.messageId : node.default.messageId;
             client.RestClient
                 .post({
                     uri: '/push/v1/messageContact/' + messageId + '/send',

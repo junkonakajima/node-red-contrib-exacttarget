@@ -34,17 +34,16 @@ module.exports = function(RED) {
             };
 
             var client = new ET_Client(etConfig.credentials.clientId, etConfig.credentials.clientSecret, etConfig.credentials.stack);                
-            var payload = msg.payload;
 
             var options = {
                 props: {
                     "TriggeredSendDefinition": {
-                        "CustomerKey" : payload.customerKey ? payload.customerKey : node.default.customerKey
+                        "CustomerKey" : msg.customerKey ? msg.customerKey : node.default.customerKey
                     },
                     "Subscribers": [{
-                        "EmailAddress" : payload.email ? payload.email : node.default.email,
-                        "SubscriberKey" : payload.subscriberKey ? payload.subscriberKey : node.default.subscriberKey,
-                        "Attributes" : createAttributes(payload.attributes ? payload.attributes : node.default.attributes)
+                        "EmailAddress" : msg.email ? msg.email : node.default.email,
+                        "SubscriberKey" : msg.subscriberKey ? msg.subscriberKey : node.default.subscriberKey,
+                        "Attributes" : createAttributes(msg.attributes ? msg.attributes : node.default.attributes)
                     }]
                 }
             };
