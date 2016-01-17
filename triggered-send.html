@@ -48,5 +48,18 @@
 
 <script type="text/x-red" data-help-name="triggered-send">
     <p>Send Email with TriggeredSend.</p>
+    <p>
+        The default parameters for triggered send request can be configured in the node.
+        If not specified, the following msg parameters are used.
+    </p>
+    <ul>
+        <li><code>customerKey</code> - TriggeredSend external key</li>
+        <li><code>subscriberKey</code> - SubscriberKey</li>
+        <li><code>email</code> - EmailAddress</li>
+        <li><code>attributes</code> - Attributes for DataExtension</li>
+    </ul>
+    <p>
+        The resulting message have payload property and the value is JSON message converted from SOAP API response.
+    </p>
 </script>
 

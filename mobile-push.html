@@ -48,5 +48,22 @@
 
 <script type="text/x-red" data-help-name="mobile-push">
     <p>Push Message with ExactTarget.</p>
+    <p>
+        The default parameters for mobile push request can be configured in the node.
+        If not specified, the following msg parameters are used.
+    </p>
+    <ul>
+        <li><code>messageId</code> - Push message ID</li>
+        <li><code>subscriberKeys</code> - SubscriberKeys string array</li>
+        <li><code>deviceTokens</code> - DeviceTokens string array</li>
+        <li><code>payload</code> - Push message text</li>
+    </ul>
+    <p>
+        If you want to override message text, please specify MessageText parameter in the node 
+        or incomming message parameter <code>msg.payload</code>.
+    </p>
+    <p>
+        The resulting message have payload property and the value is JSON message converted from SOAP API response.
+    </p>
 </script>
 
