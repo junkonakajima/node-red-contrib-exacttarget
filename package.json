@@ -17,7 +17,7 @@
   ],
   "node-red": {
     "nodes": {
-      "data-extension": "dataextension.js",
+      "data-extension": "data-extension.js",
       "subscriber": "subscriber.js",
       "triggered-send": "triggered-send.js",
       "mobile-push": "mobile-push.js",
