@@ -1,0 +1,78 @@
+<script type="text/javascript">
+  RED.nodes.registerType('data-extension',{
+    category: 'ExactTarget',
+    color: '#E98300',
+    defaults: {
+      name: {value: ""},
+      etConfig: {value: "", type:"exacttarget", required: true},
+      customerKey: {value: ""},
+      conditionField: {value: ""},
+      conditionOperator: {value: ""},
+      conditionValue: {value: ""},
+    },
+    inputs:1,
+    outputs:1,
+    icon: "envelope.png",
+    label: function() {
+      return this.name || "data-extension";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="data-extension">
+  <div class="form-row">
+    <label for="node-input-etConfig"><i class="fa fa-cog"></i> Application</label>
+    <input type="text" id="node-input-etConfig" >
+  </div>
+  <div class="form-row">
+    <label for="node-input-customerKey"><i class="fa fa-wrench"></i> ExternalKey</label>
+    <input type="text" id="node-input-customerKey" placeholder="TriggeredSend External Key">
+  </div>
+  <div class="form-row">
+    <label for="node-input-conditionField"><i class="fa fa-user"></i> Field</label>
+    <input type="text" id="node-input-conditionField" placeholder="Condition Field">
+  </div>
+  <div class="form-row">
+    <label for="node-input-conditionOperator"><i class="fa fa-envelope"></i> Operator</label>
+    <select type="text" id="node-input-conditionOperator" >
+      <option value=""></option>
+      <option value="equals">=</option>
+      <option value="notEquals">!=</option>
+      <option value="greaterThan">&gt;</option>
+      <option value="lessThan">&lt;</option>
+      <option value="isNotNull">Is Not Null</option>
+      <option value="isNull">Is Null</option>
+      <option value="greaterThanOrEqual">&gt;=</option>
+      <option value="lessThanOrEqual">&lt;=</option>
+      <!--<option value="between">&gt;</option>-->
+      <!--<option value="IN">&gt;</option>-->
+      <option value="like">Like</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label for="node-input-conditionValue"><i class="fa fa-envelope"></i> Value</label>
+    <input type="text" id="node-input-conditionValue" placeholder="Condition Value">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="data-extension">
+  <p>Retrieve DataExtension rows.</p>
+  <p>
+    The default parameters for triggered send request can be configured in the node.
+    If not specified, the following msg parameters are used.
+  </p>
+  <ul>
+    <li><code>customerKey</code> - DataExtension external key</li>
+    <li><code>conditionField</code> - Condition Field</li>
+    <li><code>conditionOperator</code> - Condition Operator</li>
+    <li><code>conditionValue</code> - Condition Value</li>
+  </ul>
+  <p>
+    The resulting message have payload property and the value is JSON message converted from SOAP API response.
+  </p>
+</script>
+
