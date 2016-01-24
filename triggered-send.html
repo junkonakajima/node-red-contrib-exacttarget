@@ -1,65 +1,66 @@
 <script type="text/javascript">
-    RED.nodes.registerType('triggered-send',{
-        category: 'ExactTarget',
-        color: '#a6bbcf',
-        defaults: {
-            name: {value: ""},
-            etConfig: {value: "", type:"exacttarget", required: true},
-            customerKey: {value: ""},
-            subscriberKey: {value: ""},
-            email: {value: ""},
-            attributes: {value: ""},
-        },
-        inputs:1,
-        outputs:1,
-        icon: "envelope.png",
-        label: function() {
-            return this.name || "triggered-send";
-        }
-    });
+  RED.nodes.registerType('triggered-send',{
+    category: 'ExactTarget',
+    color: '#E98300',
+    defaults: {
+      name: {value: ""},
+      etConfig: {value: "", type:"exacttarget", required: true},
+      customerKey: {value: ""},
+      subscriberKey: {value: ""},
+      email: {value: ""},
+      attributes: {value: ""},
+    },
+    align: 'right',
+    inputs:1,
+    outputs:1,
+    icon: "envelope.png",
+    label: function() {
+      return this.name || "triggered-send";
+    }
+  });
 </script>
 
 <script type="text/x-red" data-template-name="triggered-send">
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-cog"></i> Application</label>
-        <input type="text" id="node-input-etConfig" >
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-wrench"></i> ExternalKey</label>
-        <input type="text" id="node-input-customerKey" placeholder="TriggeredSend External Key">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-user"></i> Subscriber</label>
-        <input type="text" id="node-input-subscriberKey" placeholder="SubscriberKey">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-envelope"></i> Email</label>
-        <input type="text" id="node-input-email" placeholder="EmailAddress">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-table"></i> Attributes</label>
-        <textarea id="node-input-attributes" placeholder="DataExtension Attributes"></textarea>
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-cog"></i> Application</label>
+    <input type="text" id="node-input-etConfig" >
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-wrench"></i> ExternalKey</label>
+    <input type="text" id="node-input-customerKey" placeholder="TriggeredSend External Key">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-user"></i> Subscriber</label>
+    <input type="text" id="node-input-subscriberKey" placeholder="SubscriberKey">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-envelope"></i> Email</label>
+    <input type="text" id="node-input-email" placeholder="EmailAddress">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-table"></i> Attributes</label>
+    <textarea id="node-input-attributes" placeholder="DataExtension Attributes"></textarea>
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
 </script>
 
 <script type="text/x-red" data-help-name="triggered-send">
-    <p>Send Email with TriggeredSend.</p>
-    <p>
-        The default parameters for triggered send request can be configured in the node.
-        If not specified, the following msg parameters are used.
-    </p>
-    <ul>
-        <li><code>customerKey</code> - TriggeredSend external key</li>
-        <li><code>subscriberKey</code> - SubscriberKey</li>
-        <li><code>email</code> - EmailAddress</li>
-        <li><code>attributes</code> - Attributes for DataExtension</li>
-    </ul>
-    <p>
-        The resulting message have payload property and the value is JSON message converted from SOAP API response.
-    </p>
+  <p>Send Email with TriggeredSend.</p>
+  <p>
+    The default parameters for triggered send request can be configured in the node.
+    If not specified, the following msg parameters are used.
+  </p>
+  <ul>
+    <li><code>customerKey</code> - TriggeredSend external key</li>
+    <li><code>subscriberKey</code> - SubscriberKey</li>
+    <li><code>email</code> - EmailAddress</li>
+    <li><code>attributes</code> - Attributes for DataExtension</li>
+  </ul>
+  <p>
+    The resulting message have payload property and the value is JSON message converted from SOAP API response.
+  </p>
 </script>
 

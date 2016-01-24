@@ -1,69 +1,70 @@
 <script type="text/javascript">
-    RED.nodes.registerType('mobile-push',{
-        category: 'ExactTarget',
-        color: '#a6bbcf',
-        defaults: {
-            name: {value: ""},
-            etConfig: {value: "", type: "exacttarget", required: true},
-            messageId: {value: ""},
-            subscriberKeys: {value: ""},
-            deviceTokens: {value: ""},
-            messageText: {value: ""},
-        },
-        inputs:1,
-        outputs:1,
-        icon: "envelope.png",
-        label: function() {
-            return this.name || "mobile-push";
-        }
-    });
+  RED.nodes.registerType('mobile-push',{
+    category: 'ExactTarget',
+    color: '#E98300',
+    defaults: {
+      name: {value: ""},
+      etConfig: {value: "", type: "exacttarget", required: true},
+      messageId: {value: ""},
+      subscriberKeys: {value: ""},
+      deviceTokens: {value: ""},
+      messageText: {value: ""},
+    },
+    align: 'right',
+    inputs:1,
+    outputs:1,
+    icon: "envelope.png",
+    label: function() {
+      return this.name || "mobile-push";
+    }
+  });
 </script>
 
 <script type="text/x-red" data-template-name="mobile-push">
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-cog"></i> Application</label>
-        <input type="text" id="node-input-etConfig" >
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-wrench"></i> MessageID</label>
-        <input type="text" id="node-input-messageId" placeholder="MessageID">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-user"></i> Subscribers</label>
-        <input type="text" id="node-input-subscriberKeys" placeholder="SubscriberKeys">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-mobile"></i> DeviceTokens</label>
-        <input type="text" id="node-input-deviceTokens" placeholder="DeviceTokens">
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-file"></i> MessageText</label>
-        <textarea id="node-input-messageText" placeholder="messageText"></textarea>
-    </div>
-    <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-input-name" placeholder="Name">
-    </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-cog"></i> Application</label>
+    <input type="text" id="node-input-etConfig" >
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-wrench"></i> MessageID</label>
+    <input type="text" id="node-input-messageId" placeholder="MessageID">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-user"></i> Subscribers</label>
+    <input type="text" id="node-input-subscriberKeys" placeholder="SubscriberKeys">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-mobile"></i> DeviceTokens</label>
+    <input type="text" id="node-input-deviceTokens" placeholder="DeviceTokens">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-file"></i> MessageText</label>
+    <textarea id="node-input-messageText" placeholder="messageText"></textarea>
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
 </script>
 
 <script type="text/x-red" data-help-name="mobile-push">
-    <p>Push Message with ExactTarget.</p>
-    <p>
-        The default parameters for mobile push request can be configured in the node.
-        If not specified, the following msg parameters are used.
-    </p>
-    <ul>
-        <li><code>messageId</code> - Push message ID</li>
-        <li><code>subscriberKeys</code> - SubscriberKeys string array</li>
-        <li><code>deviceTokens</code> - DeviceTokens string array</li>
-        <li><code>payload</code> - Push message text</li>
-    </ul>
-    <p>
-        If you want to override message text, please specify MessageText parameter in the node 
-        or incomming message parameter <code>msg.payload</code>.
-    </p>
-    <p>
-        The resulting message have payload property and the value is JSON message converted from SOAP API response.
-    </p>
+  <p>Push Message with ExactTarget.</p>
+  <p>
+    The default parameters for mobile push request can be configured in the node.
+    If not specified, the following msg parameters are used.
+  </p>
+  <ul>
+    <li><code>messageId</code> - Push message ID</li>
+    <li><code>subscriberKeys</code> - SubscriberKeys string array</li>
+    <li><code>deviceTokens</code> - DeviceTokens string array</li>
+    <li><code>payload</code> - Push message text</li>
+  </ul>
+  <p>
+    If you want to override message text, please specify MessageText parameter in the node 
+    or incomming message parameter <code>msg.payload</code>.
+  </p>
+  <p>
+    The resulting message have payload property and the value is JSON message converted from SOAP API response.
+  </p>
 </script>
 
