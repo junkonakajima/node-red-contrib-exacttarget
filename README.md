@@ -4,7 +4,7 @@ A set of [Node-RED](http://www.nodered.org) nodes to interact with [ExactTarget(
 
 ## Install
 
-Run the following command in the root directory of your Node-RED install
+Run the following command in your Node-RED root directory
 
 ```
 npm install node-red-contrib-exacttarget
